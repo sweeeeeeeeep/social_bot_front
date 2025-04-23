@@ -1,0 +1,170 @@
+/* body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+.question label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.question input, .question select, .question textarea {
+    margin-bottom: 10px;
+} */
+ /* Общие стили */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+h1 {
+    text-align: center;
+    color: #4CAF50;
+    margin-top: 20px;
+    font-size: 2.5em;
+}
+
+form {
+    max-width: 700px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для меток и полей ввода */
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #555;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+/* Стили для кнопок */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Стили для вопросов */
+.question {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f1f1f1;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.question label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.question input, .question select, .question textarea {
+    margin-bottom: 10px;
+}
+
+/* Стили для заголовка опроса */
+#surveyTitle {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* Стили для контейнера вопросов */
+#questionsContainer {
+    margin-top: 20px;
+}
+
+/* Стили для подсказок */
+.helper-text {
+    font-size: 0.9em;
+    color: #777;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+/* Стили для мобильных устройств */
+@media (max-width: 768px) {
+    form {
+        padding: 15px;
+    }
+
+    button {
+        width: 100%;
+    }
+}

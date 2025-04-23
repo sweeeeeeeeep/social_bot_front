@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создание опроса</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Создание опроса</h1>
+
+    <!-- Форма для создания опроса -->
+    <form id="surveyForm">
+        <div>
+            <label for="surveyTitle">Название опроса:</label>
+            <input type="text" id="surveyTitle" name="surveyTitle" required>
+        </div>
+        
+        <!-- Форма для добавления вопросов -->
+        <h2>Добавьте вопросы</h2>
+        <div id="questionsContainer"></div>
+
+        <!-- Кнопка для добавления нового вопроса -->
+        <button type="button" id="addQuestionBtn">Добавить вопрос</button>
+        
+        <br><br>
+        <button type="submit" id="createSurveyBtn">Создать опрос</button>
+    </form>
+    
+
+
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
