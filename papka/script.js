@@ -140,7 +140,7 @@ createSurveyBtn.addEventListener('click', function() {
 const surveyJSON = JSON.stringify(surveyData, null, 2);
 console.log(surveyJSON);
 
-fetch("https://your-server-endpoint.com/api/survey", {
+fetch("htpp://api:8080/survey", {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json'
