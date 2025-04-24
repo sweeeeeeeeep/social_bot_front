@@ -143,13 +143,14 @@ console.log(surveyJSON);
 fetch("http://api:8080/survey", {
     method: 'POST',
     headers: {
+        'Mode': 'cors',
         'Content-Type': 'application/json'
     },
     body: surveyJSON
 
 })
 .then(response => {
-    if  (response.ok){
+    if  (response.ok) {
         return response.json();
     }
     else {
