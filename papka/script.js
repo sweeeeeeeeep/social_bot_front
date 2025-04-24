@@ -70,7 +70,7 @@ document.getElementById('addQuestionBtn').addEventListener('click', function() {
 const createSurveyBtn = document.getElementById('createSurveyBtn');
 
 createSurveyBtn.addEventListener('click', function() {
-    event.preventDefault();
+    //event.preventDefault();
 
 
     const surveyTitle = document.getElementById('surveyTitle').value;
@@ -140,7 +140,7 @@ createSurveyBtn.addEventListener('click', function() {
 const surveyJSON = JSON.stringify(surveyData, null, 2);
 console.log(surveyJSON);
 
-fetch("htpp://api:8080/survey", {
+fetch("http://api:8080/survey", {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json'
@@ -159,6 +159,9 @@ fetch("htpp://api:8080/survey", {
 .then(data => {
     console.log('Успешно создано:', data);
     alert('Опрос успешно создан!');
+    setTimeout(() => {
+        window.location.href = "/index.html"; // Перенаправление на главную страницу через 3 секунды
+    }, 3000);
 })
 .catch(error => {
     console.error('Ошибка:', error);
