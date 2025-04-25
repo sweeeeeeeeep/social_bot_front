@@ -147,25 +147,23 @@ fetch("http://api:8080/survey", {
         'Content-Type': 'application/json'
     },
     body: surveyJSON
-
 })
 .then(response => {
-    if  (response.ok) {
-        return response.json();
+    console.log('Статус ответа:', response.status);
+    if (response.status === 204) {
+        console.log('Сервер вернул 204 No Content');
+        return {}; // Возвращаем пустой объект, если нет тела ответа
     }
-    if (response.status === 204){
-        console.log('CORS preflight прошел успешно');
-        return {};
-    }
-    else {
-        throw new Error('Ошибка при создании опроса');
+    if (response.ok) {
+        return response.json(); // Обрабатываем JSON, если статус 200-299
+    } else {
+        throw new Error(`Ошибка: ${response.status} ${response.statusText}`);
     }
 })
 .then(data => {
     console.log('Успешно создано:', data);
     alert('Опрос успешно создан!');
-    window.location.href = "/index.html"; // Перенаправление на главную страницу через 3 секунды
-
+    window.location.href = "/index.html"; // Перенаправление на главную страницу
 })
 .catch(error => {
     console.error('Ошибка:', error);
