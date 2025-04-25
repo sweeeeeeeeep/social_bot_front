@@ -142,14 +142,17 @@ console.log(surveyJSON);
 
 fetch("http://api:8080/survey", {
     method: 'POST',
+    mode: 'cors',
     headers: {
-        'Mode': 'cors',
         'Content-Type': 'application/json'
     },
     body: surveyJSON
 
 })
 .then(response => {
+    if (response.status === 204){
+        return {};
+    }
     if  (response.ok) {
         return response.json();
     }
@@ -160,9 +163,8 @@ fetch("http://api:8080/survey", {
 .then(data => {
     console.log('Успешно создано:', data);
     alert('Опрос успешно создан!');
-    setTimeout(() => {
-        window.location.href = "/index.html"; // Перенаправление на главную страницу через 3 секунды
-    }, 3000);
+    window.location.href = "/index.html"; // Перенаправление на главную страницу через 3 секунды
+
 })
 .catch(error => {
     console.error('Ошибка:', error);
