@@ -150,11 +150,12 @@ fetch("http://api:8080/survey", {
 
 })
 .then(response => {
-    if (response.status === 204){
-        return {};
-    }
     if  (response.ok) {
         return response.json();
+    }
+    if (response.status === 204){
+        console.log('CORS preflight прошел успешно');
+        return {};
     }
     else {
         throw new Error('Ошибка при создании опроса');
