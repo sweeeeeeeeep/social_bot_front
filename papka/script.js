@@ -43,7 +43,7 @@ document.getElementById('addQuestionBtn').addEventListener('click', function() {
             input.type = 'text';
             input.placeholder = 'Введите варианты через запятую';
             answerFieldDiv.appendChild(input);
-        } else if (selectedType === 'single_choise') {
+        } else if (selectedType === 'single_choice') {
             const input = document.createElement('input');
             input.type = 'text';
             input.placeholder = 'Введите варианты через запятую';
