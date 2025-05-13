@@ -19,7 +19,7 @@ fetch("/api/survey", {
 )
 .then(surveys => {
     surveys.forEach(survey => {
-        const btnOpen = document.createElement('buttonOpen');
+        const btnOpen = document.createElement('button');
         btnOpen.textContent = 'Открыть';
 
         const listItem = document.createElement('div');
@@ -30,7 +30,7 @@ fetch("/api/survey", {
         surveyContainer.appendChild(listItem);
 
         btnOpen.addEventListener('click', () => {
-            window.location.href = `/survey-details.html?id=${survey.id}`;
+            window.location.href = `/diagrammSurvey/survey-details.html?id=${survey.id}`;
         });
     })
 })
