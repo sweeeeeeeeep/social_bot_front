@@ -5,7 +5,14 @@ const surveyId = urlParams.get('id');
 // Проверяем, если ID существует
 if (surveyId) {
     // Делаем запрос к серверу, чтобы получить данные для этого опроса
-    fetch(`https://your-backend-url.com/api/surveys/${surveyId}`)
+    fetch("http://api:8080/survey/${surveyId}", {
+        method: "GET",
+        mode: 'cors',
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        }
+    })
     .then(response => {
         if (!response.ok) {
             throw new Error("Ошибка при загрузке данных опроса.");

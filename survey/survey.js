@@ -2,7 +2,14 @@ let surveysName = ["какой чай вы предпочитаете?", "как
 
 const surveyContainer = document.getElementById('surveyList');
 
-fetch("https://your-backend-url.com/api/surveys")
+fetch("http://api:8080/survey", {
+    method: "GET",
+    mode: 'cors',
+    headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+    }
+})
 .then(response => {
     if (!response.ok) {
         throw new Error("Ошибка при загрузке опросов.");
