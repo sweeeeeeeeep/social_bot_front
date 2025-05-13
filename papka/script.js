@@ -21,7 +21,7 @@ document.getElementById('addQuestionBtn').addEventListener('click', function() {
     questionTypeSelect.innerHTML = `
         <option value="text">Ответ текстом</option>
         <option value="multiple_choice">Множественный выбор</option>
-        <option value="single_choise">Один выбор</option>
+        <option value="single_choice">Один выбор</option>
         <option value="scale">Шкала от 1 до 10</option>
     `;
 
