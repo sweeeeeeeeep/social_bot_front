@@ -20,8 +20,8 @@ document.getElementById('addQuestionBtn').addEventListener('click', function() {
     questionTypeSelect.name = 'questionType';
     questionTypeSelect.innerHTML = `
         <option value="text">Ответ текстом</option>
-        <option value="multiple">Множественный выбор</option>
-        <option value="single">Один выбор</option>
+        <option value="multiple_choice">Множественный выбор</option>
+        <option value="single_choise">Один выбор</option>
         <option value="scale">Шкала от 1 до 10</option>
     `;
 
@@ -38,12 +38,12 @@ document.getElementById('addQuestionBtn').addEventListener('click', function() {
             // const textarea = document.createElement('textarea');
             // textarea.placeholder = 'Введите ваш ответ';
             // answerFieldDiv.appendChild(textarea);
-        } else if (selectedType === 'multiple') {
+        } else if (selectedType === 'multiple_choice') {
             const input = document.createElement('input');
             input.type = 'text';
             input.placeholder = 'Введите варианты через запятую';
             answerFieldDiv.appendChild(input);
-        } else if (selectedType === 'single') {
+        } else if (selectedType === 'single_choise') {
             const input = document.createElement('input');
             input.type = 'text';
             input.placeholder = 'Введите варианты через запятую';

@@ -30,10 +30,15 @@ if (surveyId) {
 
             // Определяем тип графика
             let chartType = '';
-            if (questionType === 'single' || questionType === 'text') {
+            if (questionType === 'single') {
                 chartType = 'doughnut';
             } else if (questionType === 'multiple' || questionType === 'scale') {
                 chartType = 'bar';
+            } else if (questionType === 'text') {
+                const textDiv = document.createElement('div');
+                textDiv.textContent = `${question} (свободный ответ)`;
+                chartContainer.appendChild(textDiv);
+                return; // Пропускаем создание графика для текстовых вопросов
             }
 
             // Создаём контейнер для графика
