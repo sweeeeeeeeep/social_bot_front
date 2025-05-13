@@ -2,7 +2,7 @@ let surveysName = ["какой чай вы предпочитаете?", "как
 
 const surveyContainer = document.getElementById('surveyList');
 
-fetch("http://api:8080/survey", {
+fetch("/api/survey", {
     method: "GET",
     mode: 'cors',
     headers: {

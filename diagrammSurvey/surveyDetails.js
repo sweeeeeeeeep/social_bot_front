@@ -5,7 +5,7 @@ const surveyId = urlParams.get('id');
 // Проверяем, если ID существует
 if (surveyId) {
     // Делаем запрос к серверу, чтобы получить данные для этого опроса
-    fetch("http://api:8080/survey/${surveyId}", {
+    fetch("/api/survey/${surveyId}", {
         method: "GET",
         mode: 'cors',
         headers: {

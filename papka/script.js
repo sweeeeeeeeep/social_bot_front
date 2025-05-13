@@ -150,7 +150,7 @@ createSurveyBtn.addEventListener('click', function() {
 const surveyJSON = JSON.stringify(surveyData, null, 2);
 console.log(surveyJSON);
 
-fetch("http://api:8080/survey", {
+fetch("/api/survey", {
     method: 'POST',
     mode: 'cors',
     headers: {
