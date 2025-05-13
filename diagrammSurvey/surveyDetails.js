@@ -1,13 +1,24 @@
-fetch('data.json') // Замените на ваш путь к JSON
-    .then(function(response) {
-        if (response.ok) {
-            return response.json();
+// Получаем ID из URL
+const urlParams = new URLSearchParams(window.location.search);
+const surveyId = urlParams.get('id');
+
+// Проверяем, если ID существует
+if (surveyId) {
+    // Делаем запрос к серверу, чтобы получить данные для этого опроса
+    fetch(`https://your-backend-url.com/api/surveys/${surveyId}`)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Ошибка при загрузке данных опроса.");
         }
-        throw new Error('Ошибка при загрузке данных.');
+        return response.json();
     })
-    .then(function(data) {
-        // Обрабатываем каждый вопрос из массива
-        data.forEach((item, index) => {
+    .then(surveyData => {
+        // Отображаем данные опроса на странице
+        document.title = surveyData.name; // Устанавливаем название страницы как название опроса
+        const chartContainer = document.querySelector('.chart');
+
+        // Отображаем график для каждого вопроса
+        surveyData.questions.forEach((item, index) => {
             const { question, type: questionType, answers } = item;
 
             // Определяем тип графика
@@ -18,56 +29,42 @@ fetch('data.json') // Замените на ваш путь к JSON
                 chartType = 'bar';
             }
 
-            // Создаём контейнер для каждого графика
-            createChartContainer(question, answers, chartType, index);
+            // Создаём контейнер для графика
+            createChart(question, answers, chartType, index);
         });
     })
-    .catch(function(error) {
+    .catch(error => {
         console.error('Ошибка:', error);
+        alert("Ошибка при загрузке данных опроса.");
     });
-
-// Функция для создания контейнера и графика
-function createChartContainer(question, answers, chartType, index) {
-    // Создаём контейнер для графика
-    const container = document.createElement('div');
-    container.classList.add('chart-container');
-    container.style.marginBottom = '30px';
-
-    // Добавляем заголовок вопроса
-    const questionTitle = document.createElement('h2');
-    questionTitle.textContent = question;
-    container.appendChild(questionTitle);
-
-    // Создаём элемент canvas для графика
-    const canvas = document.createElement('canvas');
-    canvas.id = `chart-${index}`;
-    container.appendChild(canvas);
-
-    // Добавляем контейнер на страницу
-    document.body.appendChild(container);
-
-    // Создаём график
-    const ctx = canvas.getContext('2d');
-    createChart(ctx, answers, chartType, question);
+} else {
+    alert("ID опроса не найден в URL.");
 }
 
 // Функция для создания графика
-function createChart(ctx, answers, type, question) {
+function createChart(question, answers, chartType, index) {
+    const canvas = document.createElement('canvas');
+    canvas.id = `chart-${index}`;
+    document.querySelector('.chart').appendChild(canvas);
+
+    const ctx = canvas.getContext('2d');
+    
+    // Создаём график
     new Chart(ctx, {
-        type: type, // Используем переменную type
+        type: chartType, // Используем тип графика: 'doughnut' или 'bar'
         data: {
             labels: answers.map(item => item.answer), // Метки оси X из JSON
             datasets: [{
-                label: question, // Текст вопроса как label
+                label: question, // Название вопроса как label
                 data: answers.map(item => item.count), // Данные для графика
-                //backgroundColor: ['#4CAF50', '#FF5722', '#FFC107', '#2196F3', '#9C27B0'], // Цвета для столбцов
                 borderWidth: 1
             }]
         },
         options: {
+            responsive: true, // Сделать график отзывчивым
             scales: {
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true // Ось Y начинается с 0
                 }
             }
         }
