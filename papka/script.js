@@ -124,7 +124,7 @@ createSurveyBtn.addEventListener('click', function() {
         };
 
         //для вопросов с ответами
-        if (questionType === 'multiple' || questionType === 'single') {
+        if (questionType === 'multiple_choice' || questionType === 'single_choice') {
             const optionsInput = answerField.querySelector('input[type="text"]');
             if (optionsInput) {
                 const options = optionsInput.value.split(',').map(option => option.trim());
