@@ -139,6 +139,15 @@ button:disabled {
     margin-bottom: 10px;
 }
 
+.delete-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 /* Стили для заголовка опроса */
 #surveyTitle {
     font-size: 1.2em;

@@ -1,0 +1,31 @@
+[
+    {
+        "question": "Как вы оцениваете наш сервис?",
+        "type": "single",
+        "answers": [
+            {"answer": "Отлично", "count": 10},
+            {"answer": "Хорошо", "count": 5},
+            {"answer": "Плохо", "count": 3}
+        ]
+    },
+    {
+        "question": "Как часто вы пользуетесь нашим сервисом?",
+        "type": "multiple",
+        "answers": [
+            {"answer": "Ежедневно", "count": 15},
+            {"answer": "Раз в неделю", "count": 8},
+            {"answer": "Раз в месяц", "count": 5}
+        ]
+    },
+    {
+        "question": "Насколько вы довольны качеством обслуживания?",
+        "type": "scale",
+        "answers": [
+            {"answer": "1", "count": 2},
+            {"answer": "2", "count": 3},
+            {"answer": "3", "count": 5},
+            {"answer": "4", "count": 8},
+            {"answer": "5", "count": 12}
+        ]
+    }
+]

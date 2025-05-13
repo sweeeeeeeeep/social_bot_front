@@ -58,13 +58,23 @@ document.getElementById('addQuestionBtn').addEventListener('click', function() {
         }
     });
 
+    const deleteQuestionBtn = document.createElement('button');
+    deleteQuestionBtn.textContent = 'Удалить вопрос';
+    deleteQuestionBtn.type = 'button';
+    deleteQuestionBtn.classList.add('delete-btn');
+    deleteQuestionBtn.addEventListener('click', function() {
+        questionsContainer.removeChild(questionDiv);
+    });
+
     // Добавление элементов в контейнер
     questionDiv.appendChild(questionLabel);
     questionDiv.appendChild(questionInput);
     questionDiv.appendChild(questionTypeLabel);
     questionDiv.appendChild(questionTypeSelect);
     questionDiv.appendChild(answerFieldDiv);
+    questionDiv.appendChild(deleteQuestionBtn);
     questionsContainer.appendChild(questionDiv);
+
 });
 
 const createSurveyBtn = document.getElementById('createSurveyBtn');
@@ -147,29 +157,31 @@ fetch("http://api:8080/survey", {
         'Content-Type': 'application/json'
     },
     body: surveyJSON
+
 })
 .then(response => {
-    console.log('Статус ответа:', response.status);
-    if (response.status === 204) {
-        console.log('Сервер вернул 204 No Content');
-        return {}; // Возвращаем пустой объект, если нет тела ответа
+    if  (response.ok) {
+        return response.json();
     }
-    if (response.ok) {
-        return response.json(); // Обрабатываем JSON, если статус 200-299
-    } else {
-        throw new Error(`Ошибка: ${response.status} ${response.statusText}`);
+    if (response.status === 204){
+        console.log('CORS preflight прошел успешно');
+        return {};
+    }
+    else {
+        throw new Error('Ошибка при создании опроса');
     }
 })
 .then(data => {
     console.log('Успешно создано:', data);
     alert('Опрос успешно создан!');
-    window.location.href = "/index.html"; // Перенаправление на главную страницу
+    window.location.href = "/index.html"; // Перенаправление на главную страницу через 3 секунды
+
 })
-.catch(error => {
-    console.error('Ошибка:', error);
-    alert('Произошла ошибка при создании опроса.');
+// .catch(error => {
+//     console.error('Ошибка:', error);
+//     alert('Произошла ошибка при создании опроса.');
 });
-});
+
 
 
 

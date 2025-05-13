@@ -1,33 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Page</title>
-    <style>
-        h1 {
-            background-color: white;
-            color: black;
-            text-align: left;
-            padding: 30px;
-        }
-        a {
-            text-decoration: none;
-            color: black;
-            font-size: 18px;
-            font-weight: bold;
-        }
-        h3 {
-
-        }
-    </style>
-
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>soc-order</h1>
-    <a href="">Мои опросы</a>
-    <a href="papka/index.html">Создать опрос</a>
-    <h2>Шаблоны</h3>
-
+    <div class="header">
+        <a href="papka/index.html" class="button">Создать опрос</a>
+        <a href="survey/survey.html" class="button">Мои опросы</a>
+        <a href="profile.html" class="button">Мой профиль</a>
+    </div>
+    <div class="content">
+        <h1>О нас</h1>
+        <div class="about">
+            <p>
+                Добро пожаловать на наш сайт! Мы предоставляем удобный инструмент для создания опросов, их управления и анализа. 
+                Вы можете делиться своими опросами с друзьями, коллегами или использовать их в профессиональных целях.
+            </p>
+            <p>
+                Наша миссия — сделать процесс сбора данных и обратной связи максимально простым и удобным. 
+                Мы ценим ваше время и предлагаем интуитивно понятный интерфейс для работы с опросами.
+            </p>
+        </div>
+    </div>
 </body>
 </html>
