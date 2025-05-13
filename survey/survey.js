@@ -21,6 +21,7 @@ fetch("/api/survey", {
     surveys.forEach(survey => {
         const btnOpen = document.createElement('button');
         btnOpen.textContent = 'Открыть';
+        btnOpen.classList.add('buttonOpen');
 
         const listItem = document.createElement('div');
         listItem.classList.add('survey-item');
