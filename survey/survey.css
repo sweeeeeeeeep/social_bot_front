@@ -1,4 +1,10 @@
 /* Кнопка "Открыть" */
+h1 {
+    text-align: center;  /* Центрируем текст */
+    color: #4CAF50;  /* Зеленый цвет */
+    margin-top: 20px;
+    font-size: 2.5em; /* Увеличиваем размер шрифта */
+}
 button.buttonOpen {
     background-color: #4CAF50;
     color: white;
