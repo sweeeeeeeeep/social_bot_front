@@ -1,81 +1,39 @@
-/* Основные стили страницы */
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
-    line-height: 1.6;
-}
-
-/* Заголовок */
-h1 {
-    text-align: center;
-    color: #4CAF50;
-    margin-top: 20px;
-    font-size: 2.5em;
-}
-
-/* Контейнер списка опросов */
-#surveyList {
-    list-style: none;
-    max-width: 700px;
-    margin: 20px auto;
-    padding: 0;
-}
-
-/* Элемент списка опроса */
-#surveyList li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #fff;
-    padding: 15px 20px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-size: 1em;
-    color: #555;
-}
-
 /* Кнопка "Открыть" */
-#surveyList li buttonOpen {
+button.buttonOpen {
     background-color: #4CAF50;
     color: white;
-    padding: 10px 16px;
+    padding: 10px 20px; /* Увеличиваем размеры */
     border: none;
-    border-radius: 4px;
+    border-radius: 5px; /* Скругляем углы */
     cursor: pointer;
-    font-size: 0.9em;
-    transition: background-color 0.3s ease;
+    font-size: 1em; /* Увеличиваем шрифт */
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-#surveyList li buttonOpen:hover {
+button.buttonOpen:hover {
     background-color: #45a049;
+    transform: scale(1.1); /* Легкое увеличение кнопки при наведении */
 }
 
-#surveyList li buttonOpen:disabled {
+button.buttonOpen:disabled {
     background-color: #ccc;
     cursor: not-allowed;
 }
 
-/* Подсказки и вспомогательные тексты (если понадобятся) */
-.helper-text {
-    font-size: 0.9em;
-    color: #777;
-    margin-top: -10px;
-    margin-bottom: 10px;
+/* Элемент списка */
+.survey-item {
+    background-color: #fff;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1.2em; /* Увеличиваем размер шрифта */
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* Адаптивность для мобильных устройств */
-@media (max-width: 768px) {
-    #surveyList li {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    #surveyList li buttonOpen {
-        width: 100%;
-        margin-top: 10px;
-    }
+.survey-item:hover {
+    background-color: #f4f4f4; /* Легкое изменение фона при наведении */
 }
