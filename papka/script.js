@@ -127,7 +127,7 @@ createSurveyBtn.addEventListener('click', function() {
         if (questionType === 'multiple_choice' || questionType === 'single_choice') {
             const optionsInput = answerField.querySelector('input[type="text"]');
             if (questionType === 'multiple_choice') {
-                questionData.max_chois = 3;
+                questionData.max_choice = 3;
             }
             if (optionsInput) {
                 const options = optionsInput.value.split(',').map(option => option.trim());
