@@ -30,9 +30,9 @@ if (surveyId) {
 
             // Определяем тип графика
             let chartType = '';
-            if (questionType === 'single') {
+            if (questionType === 'single_choice') {
                 chartType = 'doughnut';
-            } else if (questionType === 'multiple' || questionType === 'scale') {
+            } else if (questionType === 'multiple_choice' || questionType === 'scale') {
                 chartType = 'bar';
             } else if (questionType === 'text') {
                 const textDiv = document.createElement('div');
