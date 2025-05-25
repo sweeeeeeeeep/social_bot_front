@@ -1,15 +1,71 @@
-.chart-container{
-    max-width: 300px;
-    height: 120px;
-    padding: 10px;
+.chart-container {
+    max-width: 350px;
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.07);
+    padding: 18px 10px 10px 10px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chart-container h2 {
+    font-size: 1.1em;
+    margin: 0 0 10px 0;
+    text-align: center;
+    color: #2d3e50;
+    font-weight: 500;
+}
+
+.chart-container canvas {
+    max-width: 250px !important;
+    max-height: 180px !important;
+    width: 100% !important;
+    height: 180px !important;
+    display: block;
     margin: 0 auto;
 }
 
-.chart-container .chart_types{
+.chart_types {
     text-align: center;
     margin-bottom: 30px;
 }
 
-.chart-container.chart_types button{
-    padding: 10px 25px;
+.chart_types button,
+.chart-container .chart_types button {
+    padding: 8px 18px;
+    font-size: 1em;
+    border-radius: 6px;
+    border: none;
+    background: #3b82f6;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.chart_types button:hover,
+.chart-container .chart_types button:hover {
+    background: #2563eb;
+}
+
+/* Для сетки диаграмм */
+.charts-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Адаптивность */
+@media (max-width: 800px) {
+    .chart-container {
+        max-width: 95vw;
+        padding: 10px 2vw;
+    }
+    .chart-container canvas {
+        max-width: 90vw !important;
+        height: 140px !important;
+    }
 }
